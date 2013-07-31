@@ -1,0 +1,37 @@
+# arch/arm/mach-s5pv210/Kconfig
+#
+# Copyright (c) 2010 Samsung Electronics Co., Ltd.
+#		http://www.samsung.com/
+#
+# Licensed under GPLv2
+
+# Configuration options for the S5PV210/S5PC110
+
+if ARCH_S5PV210
+
+menu "Share region policy"
+
+# Share region part
+config S5PV210_SETUP_SHARE_REGION
+    bool "setup share region"
+	default y
+	help
+		Setup code for S5PV210 share region
+
+config RESERVE_MEMSIZE_SHARE_REGION
+	int "Reserve memory size in kbytes for Share region"
+	depends on S5PV210_SETUP_SHARE_REGION
+	default "4"
+	help
+		Setup reserve memory size
+
+config RESERVE_OFFSET_SHARE_REGION
+	hex "Reserve memory offset in bytes for Share region"
+	depends on S5PV210_SETUP_SHARE_REGION
+	default "0x4ffff000"
+	help
+		Setup reserve memory offset
+
+endmenu #"share region policy"
+
+endif
